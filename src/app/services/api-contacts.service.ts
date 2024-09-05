@@ -8,7 +8,7 @@ import { Contacts } from '../models/contacts.model';
 })
 
 export class ApiContactsService {
-  private apiUrl = 'https://api-contacts-2.onrender.com/api/v1';
+  private apiUrl = 'https://api-contacts-2.vercel.app/api/v1';
 
   constructor(private http: HttpClient) { }
 
