@@ -1,0 +1,61 @@
+<main>
+  <div class="navbar">
+    <div class="container-navbar">
+      <div class="app-title">
+        <h1>Contacts <i class="bi bi-person-lines-fill"></i></h1>
+      </div>
+      <div class="buttons-navbar">
+        <button type="button" [routerLink]="['/login']" routerLinkActive="router-link-active">Login <i class="bi bi-person-up"></i></button>
+        <button type="button" [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign up <i class="bi bi-person-add"></i></button>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+<main class="main-login">
+  <section class="form-container">
+    <div class="container-login">
+      <h2>Login</h2>
+
+      <form [formGroup]="formularioLogin" (ngSubmit)="enviarLogin()">
+
+        <!-- Campo de Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Ingrese su correo electrónico" formControlName="email" />
+          <!-- Validaciones de email -->
+          <div class="text-danger" *ngIf="hasErrors('email', 'required')">
+            Email required
+          </div>
+          <div class="text-danger" *ngIf="hasErrors('email', 'email')">
+            Email invalid format
+          </div>
+        </div>
+
+        <!-- Campo de Contraseña -->
+        <div class="form-group">
+          <label for="password">Password:</label>
+          <input type="password" id="password" placeholder="Ingrese su contraseña" formControlName="password" />
+          <!-- Validaciones de password -->
+          <div class="text-danger" *ngIf="hasErrors('password', 'required')">
+            Password is required
+          </div>
+          <div class="text-danger" *ngIf="hasErrors('password', 'minlength')">
+            Password must be at least 6 characters long
+          </div>
+          <div class="text-danger" *ngIf="hasErrors('password', 'maxlength')">
+            The password must have a maximum of 20 characters
+          </div>
+        </div>
+
+        <!-- Botón de Iniciar Sesión -->
+        <button type="submit" [disabled]="formularioLogin.invalid">Login</button>
+
+        <p class="switch-form">
+          Don't have an account? <a class="recupere-password" [routerLink]="['/signup']" routerLinkActive="router-link-active">Create an account</a>
+        </p>
+      </form>
+    </div>
+  </section>
+</main>

@@ -1,0 +1,82 @@
+<main>
+  <div class="navbar">
+    <div class="container-navbar">
+      <div class="app-title">
+        <h1>Contacts <i class="bi bi-person-lines-fill"></i></h1>
+      </div>
+      <div class="buttons-navbar">
+        <button type="button" [routerLink]="['/login']" routerLinkActive="router-link-active">Login <i class="bi bi-person-up"></i></button>
+        <button type="button" [routerLink]="['/signup']" routerLinkActive="router-link-active">Sign up <i class="bi bi-person-add"></i></button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<main class="main-login">
+  <section class="form-container">
+
+    <div class="container-signup">
+      <h2>Sign Up</h2>
+      <form [formGroup]="formularioSignUp" (ngSubmit)="enviarSignUp()">
+
+        <!-- Campo de nombre -->
+        <div class="form-group">
+          <label for="name">Name:</label>
+          <input type="text" id="name" placeholder="Ingrese su nombre completo" formControlName="name" />
+          <!--Validaciones del nombre -->
+          <div class="text-danger" *ngIf="hasErrors('name', 'required')">El nombre es requerido</div>
+        </div>
+
+        <!-- Campo de Email -->
+        <div class="form-group">
+          <label for="email">Email:</label>
+          <input type="email" id="email" placeholder="Ingrese su correo electrónico"
+            [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}"
+            class="form-control" formControlName="email" />
+          <!--Validaciones del Email-->
+          <div class="text-danger" *ngIf="hasErrors('email', 'email')">Email invalid format </div>
+          <div class="text-danger" *ngIf="hasErrors('email', 'required')">Email is required</div>
+        </div>
+
+        <!-- Campo de Password -->
+        <div formGroupName="passwordGroup">
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" id="password" placeholder="Ingrese su contraseña"
+              [ngClass]="{'is-invalid': hasErrors('password', 'required', 'passwordGroup')}" class="form-control"
+              formControlName="password" />
+            <!--Validaciones del password -->
+            <div class="text-danger" *ngIf="hasErrors('password', 'required', 'passwordGroup')">Password is required
+            </div>
+            <div class="text-danger" *ngIf="hasErrors('password', 'minlength', 'passwordGroup')">Password must be at least 6 characters long.
+            </div>
+            <div class="text-danger" *ngIf="hasErrors('password', 'maxlength', 'passwordGroup')">
+              The password must have a maximum of 20 characters.
+            </div>
+          </div>
+
+          <!-- Campo de repeat Password -->
+          <div class="form-group">
+            <label for="repeatPassword">Password repeat</label>
+            <input type="password" id="repeatPassword" placeholder="Ingrese su contraseña"
+              [ngClass]="{'is-invalid': hasErrors('repeatPassword', 'required', 'passwordGroup')}" class="form-control"
+              formControlName="repeatPassword" />
+          </div>
+          <!--Validaciones del repeat Password-->
+          <div class="container-validaciones-password">
+            <div class="text-danger" *ngIf="formularioSignUp.get('passwordGroup')?.hasError('passwordsMismatch')">
+              Passwords do not match
+            </div>
+          </div>
+        </div>
+
+        <!-- Boton de registrarse -->
+        <button type="submit" [disabled]="formularioSignUp.invalid">Sign up</button>
+      </form>
+
+      <p class="switch-form">
+        Do you have an account? <a routerLink="/login" class="recupere-password">¡Login!</a>
+      </p>
+    </div>
+  </section>
+</main>

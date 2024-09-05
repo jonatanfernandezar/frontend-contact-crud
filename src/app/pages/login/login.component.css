@@ -1,0 +1,238 @@
+
+/* Estilos para el Login */
+
+* {
+  font-family: 'Times New Roman', Times, serif;
+}
+
+/* Estilos para el navbar */
+
+.navbar {
+  background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(123,29,253,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+.container-navbar {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  height: 60px;
+}
+
+.container-navbar .app-title {
+  width: 30%;
+  overflow: hidden;
+}
+
+.container-navbar .app-title h1 {
+  font-size: 2rem;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  color: white;
+  font-weight: bold;
+  letter-spacing: 10px;
+}
+
+.buttons-navbar {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  width: 15%;
+}
+
+.buttons-navbar button {
+  background-color: rgba(0, 0, 0, 0.526);
+}
+
+.buttons-navbar button:hover {
+  background-color: palevioletred;
+}
+
+.bi-person-up, .bi-person-add {
+  font-size: 1.2rem;
+}
+
+.bi-person-lines-fill {
+  color: orange;
+  margin-left: 15px;
+}
+
+/* Estilos para el Login */
+
+.app-title h1 {
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  text-transform: uppercase;
+  font-size: 3rem;
+}
+
+.main-login {
+  height: 95vh;
+  background: rgb(238, 174, 202);
+  background: linear-gradient(90deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  justify-content: center;
+}
+
+.form-container {
+  max-width: 500px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 3px 3px 25px 5px rgba(0, 0, 0, 0.2);
+  display: flex;
+  justify-content: center;
+  margin-top: 0px;
+}
+
+.container-login {
+  width: 100%;
+  padding: 10px 30px 0px 30px;
+  border-radius: 0 20px 20px 0;
+}
+
+.container-login h2 {
+  margin-bottom: 1rem;
+  text-align: center;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 2rem;
+}
+
+.form-group {
+  margin-bottom: 1rem;
+}
+
+label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+button:hover {
+  background-color: palevioletred;
+}
+
+.recupere-password {
+ cursor: pointer;
+}
+
+.switch-form {
+  text-align: center;
+  margin-top: 1rem;
+}
+
+.switch-form a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.switch-form a:hover {
+  text-decoration: underline;
+}
+
+.container-otras-opciones-login {
+  display: flex;
+  flex-direction: column;
+}
+
+.button-icon-google {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 6px;
+  background-color: black;
+  padding: 5px 5px 0px 5px;
+}
+
+.button-icon-google .bi-google {
+  font-size: 1.5rem;
+}
+
+.button-icon-google:hover {
+  background-color: palevioletred;
+}
+
+.button-icon-facebook {
+  border: 1px solid gray;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  border-radius: 6px;
+  margin-top: 20px;
+  background-color: black;
+  padding: 5px 5px 0px 5px;
+}
+
+.button-icon-facebook .bi-facebook {
+  font-size: 1.5rem;
+}
+
+.button-icon-facebook:hover {
+  background-color: palevioletred;
+}
+
+/* Alertas de validaciones en el Sign Up*/
+.text-danger {
+  color: red;
+  font-style: italic;
+  font-size: small;
+}
+
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .navbar-toggler {
+    display: block;
+  }
+
+  .navbar-collapse {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .navbar-collapse.show {
+    display: flex;
+  }
+
+  .navbar-nav {
+    flex-direction: column;
+    padding: 0;
+  }
+
+  .nav-item {
+    margin-left: 0;
+    margin-top: 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-container {
+    padding: 1rem;
+  }
+}

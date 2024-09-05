@@ -1,0 +1,54 @@
+<main class="main-login">
+    <section class="form-container">
+
+      <div class="container-signup">
+        <h2>Create Contact</h2>
+        <form [formGroup]="formularioCreateContact" (ngSubmit)="enviarCreateContact()">
+  
+          <!-- Campo de nombre -->
+          <div class="form-group">
+            <label for="name">Name:</label>
+            <input type="text" id="name" placeholder="Type the contact name" formControlName="name" />
+            <!--Validaciones del nombre -->
+            <div class="text-danger" *ngIf="hasErrors('name', 'required')">El nombre es requerido</div>
+          </div>
+  
+          <!-- Campo de Email -->
+          <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" id="email" placeholder="Ingrese su correo electrónico"
+              [ngClass]="{'is-invalid': hasErrors('email', 'required') || hasErrors('email', 'email')}"
+              class="form-control" formControlName="email" />
+            <!--Validaciones del Email-->
+            <div class="text-danger" *ngIf="hasErrors('email', 'email')">Email invalid format </div>
+            <div class="text-danger" *ngIf="hasErrors('email', 'required')">Email is required</div>
+          </div>
+
+          <!-- Campo del telefono -->
+           <label for="phone">Phone:</label>
+           <input type="number" id="phone" placeholder="Type a phone number" formControlName="phone" />
+           <!-- Validacion del telefono -->
+           <div class="text-danger" *ngIf="hasErrors('phone', 'required')">Phone is required</div>
+
+           <!-- Campo de direccion -->
+          <div class="form-group">
+            <label for="address">Adress:</label>
+            <input type="text" id="address" placeholder="Type the address" formControlName="address" />
+          </div>
+
+          <!-- Campo de descripcion -->
+          <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" placeholder="Type a contact description" formControlName="description" />
+          </div>
+
+          <!-- Boton de crear contacto -->
+           <div class="container-buttons-create-contact">
+            <button type="submit" [disabled]="formularioCreateContact.invalid">Create</button>
+            <button type="button" [routerLink]="['/dashboard-user']" routerLinkActive="router-link-active">Cancel</button>
+           </div>
+        </form>
+
+      </div>
+    </section>
+  </main>

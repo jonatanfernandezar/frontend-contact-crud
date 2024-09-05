@@ -1,0 +1,29 @@
+
+<div *ngIf="contacts.length === 0">You don't have any contacts, start creating one.</div>
+<ul *ngIf="contacts.length > 0">
+  <li *ngFor="let contact of contacts">
+      <div class="card-container">
+        <div class="card">
+            <div class="card-header">
+                <img src="https://via.placeholder.com/150" alt="User Image" class="card-img">
+            </div>
+            <div class="card-body">
+                <h3 class="card-title">{{ contact.name }}</h3>
+                <p class="card-info">Email: {{ contact.name }}</p>
+                <p class="card-info">Phone: {{ contact.email }}</p>
+                <p class="card-info">Address: {{ contact.name }}</p>
+                <p class="card-info">Address: {{ contact.address }}</p>
+                <p class="card-info">Address: {{ contact.description }}</p>
+                <div class="card-buttons">
+                    <button class="btn edit-btn">Edit</button>
+                    <button class="btn delete-btn">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+  </li>
+</ul>
+
+
+
+
